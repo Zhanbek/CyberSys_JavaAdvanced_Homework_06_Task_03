@@ -15,6 +15,8 @@ public @interface RoleAnno {
      * Назва
      */
     String name();
-
+    /**
+     * Рівень доступу.
+     */
     int level() default 1;
 }

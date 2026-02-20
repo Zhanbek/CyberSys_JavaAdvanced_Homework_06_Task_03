@@ -13,9 +13,5 @@ public @interface PermissionAnno {
     /**
      * Назва дозволу.
      */
-    String name();
-    /**
-     * Є адміністратором
-     */
-    boolean isAdministrator();
+    String value();
 }
