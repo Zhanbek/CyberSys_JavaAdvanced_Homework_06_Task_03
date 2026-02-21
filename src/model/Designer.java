@@ -5,8 +5,8 @@ import annotations.RoleAnno;
 import annotations.VersionAnno;
 
 @RoleAnno(name = "Creator", level = 3)
-@PermissionAnno("WRITE")
-@PermissionAnno("COMMIT")
+@PermissionAnno("READ")
+@PermissionAnno("DESIGN")
 @VersionAnno(number = "1.1")
 public class Designer extends Employee {
 

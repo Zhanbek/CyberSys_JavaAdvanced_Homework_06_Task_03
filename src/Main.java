@@ -18,9 +18,7 @@ public class Main {
         Manager manager = new Manager("Bob");
 
         printInfo(engineer);
-        System.out.println("----------------");
         printInfo(designer);
-        System.out.println("----------------");
         printInfo(manager);
     }
 
@@ -28,39 +26,46 @@ public class Main {
      * Виведення інформації через reflection.
      */
     public static void printInfo(Employee emp) {
-
         Class<?> clazz = emp.getClass();
 
         System.out.println();
-        System.out.println("Class: " + clazz.getSimpleName());
+        System.out.println("Клас: " + clazz.getSimpleName());
+        System.out.println();
 
         // RoleAnno (Inherited)
         if (clazz.isAnnotationPresent(RoleAnno.class)) {
-
+            System.out.println("Роль: ");
+            System.out.println("--------------");
             RoleAnno role =
                     clazz.getAnnotation(RoleAnno.class);
 
-            System.out.println("Role: " + role.name());
-            System.out.println("Level: " + role.level());
+            System.out.println("Назва: " + role.name());
+            System.out.println("Рівень: " + role.level());
+            System.out.println("--------------");
         }
+        System.out.println();
 
-        // Version
+        // VersionAnno
         if (clazz.isAnnotationPresent(VersionAnno.class)) {
 
             VersionAnno version =
                     clazz.getAnnotation(VersionAnno.class);
 
-            System.out.println("Version: " + version.number());
+            System.out.println("Версія: " + version.number());
         }
+        System.out.println();
 
-        // Permissions (Repeatable)
+        // PermissionsArrayAnno (Repeatable)
         PermissionAnno[] permissions =
                 clazz.getAnnotationsByType(PermissionAnno.class);
 
-        System.out.println("Permissions:");
-
+        System.out.println("Дозвіл: ");
+        System.out.println("--------------");
         for (PermissionAnno p : permissions) {
             System.out.println("- " + p.value());
         }
+        System.out.println("--------------");
+        System.out.println();
+
     }
 }
