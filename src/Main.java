@@ -25,7 +25,7 @@ public class Main {
     }
 
     /**
-     * Вывод информации через reflection.
+     * Виведення інформації через reflection.
      */
     public static void printInfo(Employee emp) {
 
